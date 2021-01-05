@@ -1,6 +1,8 @@
+(package-initialize)
+
 (transient-mark-mode t)
 
-(set-default-font "-*-*-medium-r-normal-*-14-*-*-*-*-*-iso10646-1")
+;(set-default-font "-*-*-medium-r-normal-*-14-*-*-*-*-*-iso10646-1")
 
 (set-language-environment 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -36,3 +38,26 @@
 
 (set-frame-size (selected-frame) 181 47)
 
+;(global-set-key "\C-?у" 'move-end-of-line)
+(global-set-key "\C-n" 'forward-line)
+
+(require 'web-mode)
+
+(defvar *afilename-cmd* 
+  '(("/tmp/0/fitness/gtk/src/main.c" . "/tmp/0/fitness/gtk/x.sh")
+    ("xxx" . "xxx"))
+  "Test")
+
+(defun recomp ()
+  "Execute a command after saved a specific file."
+  (let* ((match (assoc (buffer-file-name) *afilename-cmd*)))
+    (when match
+      (shell-command (cdr match)))))
+
+(add-hook 'after-save-hook 'recomp)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq-default web-mode-markup-indent-offset  2)
+(setq tab-width 2)
+(setq indent-tabs-mode nil)
+(setq web-mode-markup-indent-offset  2)

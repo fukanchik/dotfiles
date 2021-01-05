@@ -1,8 +1,26 @@
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
 (transient-mark-mode t)
+(set-face-attribute 'region nil :background "dark orange")
 
-;(set-default-font "-*-*-medium-r-normal-*-14-*-*-*-*-*-iso10646-1")
+(setq line-move-visual nil)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(use-package web-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 (set-language-environment 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -17,9 +35,7 @@
 
 (global-set-key (kbd "C-c l") 'goto-line)
 
-
-
-
+;;;;;;;;;;;;;;;;;;;;;;;; RECENTF ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 1000)
@@ -31,15 +47,10 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (autoload 'scad-mode "scad-mode" "Major mode for editing SCAD code." t)
 (add-to-list 'auto-mode-alist '("\\.scad$" . scad-mode))
-;;(require 'scad-mode)
-;;(insert (prin1-to-string load-path))
 
+(set-frame-size (selected-frame) 205 55)
 
-
-(set-frame-size (selected-frame) 181 47)
-
-;(global-set-key "\C-?у" 'move-end-of-line)
-(global-set-key "\C-n" 'forward-line)
+(global-set-key (kbd "C-n") 'forward-line)
 
 (require 'web-mode)
 

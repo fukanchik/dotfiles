@@ -1,4 +1,5 @@
-== USB android autosuspend ==
+## USB android autosuspend 
+
 ADB constantly disconnects, shows device offline
 
 https://www.kernel.org/doc/Documentation/usb/power-management.txt

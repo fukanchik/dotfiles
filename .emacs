@@ -48,8 +48,6 @@
 (autoload 'scad-mode "scad-mode" "Major mode for editing SCAD code." t)
 (add-to-list 'auto-mode-alist '("\\.scad$" . scad-mode))
 
-(set-frame-size (selected-frame) 205 55)
-
 (global-set-key (kbd "C-n") 'forward-line)
 
 (require 'web-mode)
@@ -72,3 +70,13 @@
 (setq tab-width 2)
 (setq indent-tabs-mode nil)
 (setq web-mode-markup-indent-offset  2)
+
+(defun fullscreen ()
+  " Open emacs in fullscreen mode "
+  (set-frame-size (selected-frame) 205 55)
+  (set-frame-parameter nil 'fullscreen 'fullboth)
+  ;(set-frame-parameter nil 'fullscreen 'maximized)
+  ;(toggle-frame-fullscreen)
+)
+(fullscreen)
+

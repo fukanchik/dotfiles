@@ -5,6 +5,7 @@
 (package-initialize)
 
 (transient-mark-mode t)
+(setq inhibit-startup-message t)
 (set-face-attribute 'region nil :background "dark orange")
 
 (setq line-move-visual nil)
